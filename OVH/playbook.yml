@@ -1,0 +1,15 @@
+- name: Configuration du serveur web
+  hosts: web
+  become: yes
+  tasks:
+    - name: Installation de Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Demarrage de Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
